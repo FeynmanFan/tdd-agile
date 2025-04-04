@@ -1,13 +1,15 @@
 class LifeSupportSystem:
-    def __init__(self):
+    def __init__(self, isActive=False):
         self.oxygen_level = 100
+        self.isActive = isActive
 
     def set_oxygen_level(self, level):
         self.oxygen_level = level
 
     def check_oxygen_level(self):
         if self.oxygen_level < 20:
-            return f"Critical: Oxygen level at {self.oxygen_level}%"
+            self.oxygen_level = 80
+            return "Oxygen replenished to 80%"
         
         elif self.oxygen_level < 50:
             return f"Warning: Oxygen level at {self.oxygen_level}%"
